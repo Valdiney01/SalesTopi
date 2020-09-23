@@ -1,7 +1,7 @@
 public  class TesteApi {
     public static void cotacaoDolar(Account conta){
         HTTP http = new HTTP ();
-        httpRequest request = new httpRequest();
+        HttpRequest request = new HttpRequest();
         request.setEndPoint('https://economia.awesomeapi.com.br/USD-BRL/1');
         request.setMethod('GET');
         httpResponse response = http.send(request);

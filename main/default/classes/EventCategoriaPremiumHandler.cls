@@ -1,4 +1,4 @@
-public class EventCategoriaPremiumHandler {
+public class EventCategoriaPremiumHandler{
     public static void TriggerAfter(List <Account> Accounts){
         List<Event> Events = new List<Event>();
         for(Account newAccount : Accounts){
