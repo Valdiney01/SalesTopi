@@ -2,7 +2,7 @@ public class EventCategoriaPremiumHandler{
     public static void TriggerAfter(List <Account> Accounts){
         List<Event> Events = new List<Event>();
         for(Account newAccount : Accounts){
-            if(newAccount.categoria__c == EventCategoriaPremiumConstants.EVENT_CATEGORY && newAccount.AnnualRevenue > 1000000){
+            if(newAccount.categoria__c == EventCategoriaPremiumConstants.EVENT_CATEGORY && newAccount.AnnualRevenue > EventCategoriaPremiumConstants.EVENT_ANNUALREVENUE){
                 Event newEvent = new Event(); 
                 newEvent.description = EventCategoriaPremiumConstants.EVENT_DESCRIPTION;
                 newEvent.Subject = EventCategoriaPremiumConstants.EVENT_SUBJECT;
@@ -16,7 +16,8 @@ public class EventCategoriaPremiumHandler{
             }
         }
         if(Events.size () > 0){
-            insert Events;
+            AccountRepository criar = new AccountRepository() ;
+            criar.create(Events);
         }
     }
 }
